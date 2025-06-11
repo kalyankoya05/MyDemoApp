@@ -1,0 +1,16 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo "Installing dependencies..."
+      - npm install # or any install commands if needed.
+  build:
+    commands:
+      - echo "Building the application..."
+      - npm run build # if you have a build process
+  post_build:
+    commands:
+      - echo "Build finished at $(date)"
+artifacts:
+  files:
+    - "**/*"
