@@ -1,17 +1,20 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+      - echo "Installing dependencies, if any (none required for this example)"
   pre_build:
     commands:
-      - echo "Installing dependencies..."
-      - npm install
+      - echo "Pre-build phase: Checking environment..."
+      - ls -la
   build:
     commands:
-      - echo "Building the application..."
-      - npm run build
+      - echo "Build phase: Packaging the application bundle..."
+      - ls -la
   post_build:
     commands:
-      - echo "Build finished at $(date)"
+      - echo "Post-build phase: Build completed on $(date)"
 
 artifacts:
   files:

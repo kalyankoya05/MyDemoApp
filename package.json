@@ -1,9 +1,0 @@
-{
-  "name": "mydemoapp",
-  "version": "1.0.0",
-  "description": "Demo application for AWS CI/CD deployment",
-  "scripts": {
-    "build": "echo 'Building the application...'; exit 0"
-  },
-  "dependencies": {}
-}
