@@ -3,18 +3,18 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing dependencies, if any (none required for this example)"
+      - 'echo "Installing dependencies, if any (none required for this example)"'
   pre_build:
     commands:
-      - echo "Pre-build phase: Checking environment..."
-      - ls -la
+      - 'echo "Pre-build phase: Checking environment..."'
+      - "ls -la"
   build:
     commands:
-      - echo "Build phase: Packaging the application bundle..."
-      - ls -la
+      - 'echo "Build phase: Packaging the application bundle..."'
+      - "ls -la"
   post_build:
     commands:
-      - echo "Post-build phase: Build completed on $(date)"
+      - 'echo "Post-build phase: Build completed on $(date)"'
 
 artifacts:
   files:
