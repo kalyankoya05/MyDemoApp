@@ -15,47 +15,68 @@
       width: 100%;
       max-width: 400px;
       margin: 30px auto;
-      position: relative;
       background: #fff;
       padding: 20px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
     }
 
-    .login-html {
-      position: relative;
+    /* Hide radio inputs */
+    input[type="radio"] {
+      display: none;
     }
 
-    .tab {
-      display: inline-block;
-      margin: 0;
-      padding: 15px 20px;
-      cursor: pointer;
+    /* Flex container for tabs */
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .tab-label {
+      flex: 1;
       text-align: center;
+      padding: 10px;
       background: #f8f8f8;
-      border-bottom: 2px solid transparent;
+      cursor: pointer;
       font-weight: bold;
-      font-size: 16px;
       transition: background 0.3s, border-bottom 0.3s;
     }
 
-    .tab:hover,
-    .tab:checked {
+    /* Style for the active tab */
+    #tab-1:checked~.tabs label[for="tab-1"],
+    #tab-2:checked~.tabs label[for="tab-2"] {
       background: #e0e0e0;
       border-bottom: 2px solid #4caf50;
+    }
+
+    .form-container {
+      /* Hide all forms by default */
+      display: none;
+    }
+
+    /* Display sign-in form when tab-1 is checked */
+    #tab-1:checked~.form-container .sign-in-form {
+      display: block;
+    }
+
+    /* Display sign-up form when tab-2 is checked */
+    #tab-2:checked~.form-container .sign-up-form {
+      display: block;
     }
 
     .group {
       margin: 20px 0;
     }
 
-    .label {
+    .group .label {
       font-size: 14px;
       margin-bottom: 8px;
       display: block;
     }
 
-    .input {
+    .group .input {
       width: 100%;
       padding: 10px;
       border: 1px solid #ddd;
@@ -81,6 +102,7 @@
     .hr {
       border: 0;
       border-top: 1px solid #ddd;
+      margin: 20px 0;
     }
 
     .foot-lnk {
@@ -92,24 +114,32 @@
 
 <body>
   <div class="login-wrap">
-    <div class="login-html">
-      <input id="tab-1" type="radio" name="tab" class="sign-in" checked>
-      <label for="tab-1" class="tab">Sign In</label>
-      <input id="tab-2" type="radio" name="tab" class="sign-up">
-      <label for="tab-2" class="tab">Sign Up</label>
-      <div class="login-form">
-        <div class="sign-in-htm">
+    <!-- Hidden radio buttons for tab selection -->
+    <input id="tab-1" type="radio" name="tab" checked>
+    <input id="tab-2" type="radio" name="tab">
+
+    <!-- Top tabs -->
+    <div class="tabs">
+      <label for="tab-1" class="tab-label">Sign In</label>
+      <label for="tab-2" class="tab-label">Sign Up</label>
+    </div>
+
+    <!-- Form container -->
+    <div class="form-container">
+      <!-- Sign In Form -->
+      <div class="sign-in-form">
+        <form action="#">
           <div class="group">
             <label for="user" class="label">Username</label>
             <input id="user" type="text" class="input">
           </div>
           <div class="group">
             <label for="pass" class="label">Password</label>
-            <input id="pass" type="password" class="input" data-type="password">
+            <input id="pass" type="password" class="input">
           </div>
           <div class="group">
-            <input id="check" type="checkbox" class="check" checked>
-            <label for="check"><span class="icon"></span> Keep me Signed in</label>
+            <input id="check" type="checkbox">
+            <label for="check">Keep me Signed in</label>
           </div>
           <div class="group">
             <input type="submit" class="button" value="Sign In">
@@ -118,32 +148,35 @@
           <div class="foot-lnk">
             <a href="#forgot">Forgot Password?</a>
           </div>
-        </div>
-        <div class="sign-up-htm">
+        </form>
+      </div>
+      <!-- Sign Up Form -->
+      <div class="sign-up-form">
+        <form action="#">
           <div class="group">
-            <label for="user" class="label">Username</label>
-            <input id="user" type="text" class="input">
+            <label for="new-user" class="label">Username</label>
+            <input id="new-user" type="text" class="input">
           </div>
           <div class="group">
-            <label for="pass" class="label">Password</label>
-            <input id="pass" type="password" class="input" data-type="password">
+            <label for="new-pass" class="label">Password</label>
+            <input id="new-pass" type="password" class="input">
           </div>
           <div class="group">
-            <label for="pass" class="label">Repeat Password</label>
-            <input id="pass" type="password" class="input" data-type="password">
+            <label for="repeat-pass" class="label">Repeat Password</label>
+            <input id="repeat-pass" type="password" class="input">
           </div>
           <div class="group">
-            <label for="pass" class="label">Email Address</label>
-            <input id="pass" type="text" class="input">
+            <label for="email" class="label">Email Address</label>
+            <input id="email" type="email" class="input">
           </div>
           <div class="group">
             <input type="submit" class="button" value="Sign Up">
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
-            <label for="tab-1">Already Member?</label>
+            <label for="tab-1">Already a Member?</label>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
