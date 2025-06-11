@@ -1,3 +1,4 @@
 #!/bin/bash
 echo "Stopping web server..."
-sudo systemctl stop nginx   # or apache2, depending on your server
+# Attempt to stop nginx. Adjust if using a different web server.
+sudo systemctl stop nginx || echo "nginx service not running."

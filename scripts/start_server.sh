@@ -1,3 +1,4 @@
 #!/bin/bash
 echo "Starting web server..."
-sudo systemctl start nginx
+# Attempt to start nginx. Adjust as needed.
+sudo systemctl start nginx || echo "Failed to start nginx."

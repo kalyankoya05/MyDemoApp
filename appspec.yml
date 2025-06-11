@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: ./
-    destination: /var/www/html # Adjust if needed
+    destination: /var/www/html # Adjust this destination as needed
 hooks:
   BeforeInstall:
     - location: scripts/stop_server.sh
